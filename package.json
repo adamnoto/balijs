@@ -1,0 +1,31 @@
+{
+  "name": "bali.js",
+  "version": "1.0.0",
+  "description": "Bali.js is a JavaScript's light-weight access authorization library",
+  "main": "bali.js",
+  "scripts": {
+    "test": "npm run build && mocha ./distribution/tests",
+    "build": "babel ./source --presets babel-preset-es2015 --out-dir ./distribution",
+    "build-production": "npm run build && uglifyjs ./distribution/bali.js -c -m -o ./distribution/bali.min.js --source-map ./distribution/bali.min.map && node2umd ./distribution/bali.min.js > ./distribution/bali.min.umd.js && uglifyjs ./distribution/bali.min.umd.js -c -o ./distribution/bali.min.umd.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/saveav/balijs/settings"
+  },
+  "author": "= <=> (http://dots.tripisco.com)",
+  "license": "MIT",
+  "keywords": [
+    "authorization",
+    "role",
+    "grants",
+    "ACL",
+    "access"
+  ],
+  "devDependencies": {
+    "babel-cli": "^6.11.4",
+    "babel-preset-es2015": "^6.9.0",
+    "chai": "^3.5.0",
+    "node2umd": "^1.0.2",
+    "uglify-js": "^2.7.0"
+  }
+}

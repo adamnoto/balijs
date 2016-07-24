@@ -1,0 +1,18 @@
+<html>
+  <head>
+    <script type='application/javascript' src='./bali.min.umd.js'></script>
+  </head>
+  <body>
+    <h1>Bali on Browser</h1>
+
+    <script type='application/javascript'>
+      window.authorizer = Bali.mapRules({
+        "SEE_LEAVE": (ruler) => { ruler.can("see", "leave"); },
+        "APPROVE_LEAVE": (ruler) => { ruler.can("approve", "leave"); }
+      });
+
+      console.log("SEE_LEAVE -> see leave", authorizer.can("SEE_LEAVE", "see", "leave"));
+      console.log("SEE_LEAVE -> approve_leave", authorizer.can("SEE_LEAVE", "approve", "leave"));
+    </script>
+  </body>
+</html>
